@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>JewelSort — Privacy Policy / プライバシーポリシー</title>
+  <style>
+    :root { --fg:#1b1f23; --muted:#6a737d; --link:#0366d6; --bg:#fff; }
+    @media (prefers-color-scheme: dark){ :root{ --fg:#e6edf3; --muted:#9aa6b2; --link:#79b8ff; --bg:#0d1117; } }
+    body{ margin:0; font:16px/1.6 -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif; color:var(--fg); background:var(--bg); }
+    .wrap{ max-width:860px; margin:0 auto; padding:24px; }
+    header{ display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap; }
+    h1{ margin:8px 0 0; font-size:24px; }
+    .lang-toggle button{ margin-left:8px; padding:6px 10px; border:1px solid var(--muted); background:transparent; color:var(--fg); border-radius:6px; cursor:pointer; }
+    .lang-toggle button.active{ border-color:var(--link); color:var(--link); }
+    .muted{ color:var(--muted); }
+    main{ margin-top:16px; }
+    a{ color:var(--link); text-decoration:none; }
+    a:hover{ text-decoration:underline; }
+  </style>
+  <script>
+    function setLang(lang){
+      document.querySelectorAll('[data-lang]')
+        .forEach(el => el.style.display = (el.dataset.lang === lang) ? 'block' : 'none');
+      document.querySelectorAll('.lang-toggle button')
+        .forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+      localStorage.setItem('js_lang', lang);
+    }
+    function initLang(){
+      const saved = localStorage.getItem('js_lang');
+      const preferred = navigator.language && navigator.language.startsWith('ja') ? 'ja' : 'en';
+      setLang(saved || preferred);
+    }
+    document.addEventListener('DOMContentLoaded', initLang);
+  </script>
+  <meta name="color-scheme" content="light dark" />
+  <meta name="robots" content="noindex" />
+  <link rel="canonical" href="https://nekomura0728.github.io/jewelsort/privacy" />
+  <link rel="icon" href="/jewelsort/favicon.ico" />
+  <link rel="apple-touch-icon" href="/jewelsort/apple-touch-icon.png" />
+  <meta name="theme-color" content="#0d1117" />
+  <meta name="description" content="JewelSort Privacy Policy / プライバシーポリシー" />
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div>
+        <div class="muted">JewelSort</div>
+        <h1>Privacy Policy / プライバシーポリシー</h1>
+      </div>
+      <div class="lang-toggle">
+        <span class="muted">Language:</span>
+        <button data-lang="en" onclick="setLang('en')">English</button>
+        <button data-lang="ja" onclick="setLang('ja')">日本語</button>
+      </div>
+    </header>
+
+    <main>
+      <section data-lang="en">
+        <p class="muted">Last updated: 2025-08-31</p>
+        <p>JewelSort respects your privacy.</p>
+        <h3>Data Collection</h3>
+        <ul>
+          <li>The app does not collect personal information or analytics.</li>
+          <li>Game progress (e.g., streak, best records, settings) is stored locally on your device (UserDefaults).</li>
+        </ul>
+        <h3>Purchases</h3>
+        <p>In‑app purchases are processed by Apple. We do not receive payment information.</p>
+        <h3>Network Access</h3>
+        <p>The app is designed to work offline and does not make network requests during normal gameplay.</p>
+        <h3>Contact</h3>
+        <p>For questions, please open an issue on our GitHub repository.</p>
+        <p class="muted"><a href="/jewelsort/terms">Terms of Service</a></p>
+      </section>
+
+      <section data-lang="ja" style="display:none">
+        <p class="muted">最終更新日: 2025-08-31</p>
+        <p>JewelSort はお客様のプライバシーを尊重します。</p>
+        <h3>取得するデータ</h3>
+        <ul>
+          <li>本アプリは個人情報やアクセス解析を取得しません。</li>
+          <li>連勝数・ベスト記録・設定などのゲーム進行は端末内（UserDefaults）に保存されます。</li>
+        </ul>
+        <h3>購入情報</h3>
+        <p>アプリ内課金は Apple により処理されます。当方は支払い情報を受け取りません。</p>
+        <h3>ネットワークアクセス</h3>
+        <p>本アプリはオフラインで動作する設計であり、通常のプレイ中にネットワークリクエストを行いません。</p>
+        <h3>連絡先</h3>
+        <p>ご質問は GitHub リポジトリの Issues よりお問い合わせください。</p>
+        <p class="muted"><a href="/jewelsort/terms">利用規約</a></p>
+      </section>
+    </main>
+  </div>
+</body>
+<script>
+  document.addEventListener('pageshow', initLang);
+</script>
+</html>
+

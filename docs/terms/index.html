@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>JewelSort — Terms of Service / 利用規約</title>
+  <style>
+    :root { --fg:#1b1f23; --muted:#6a737d; --link:#0366d6; --bg:#fff; }
+    @media (prefers-color-scheme: dark){ :root{ --fg:#e6edf3; --muted:#9aa6b2; --link:#79b8ff; --bg:#0d1117; } }
+    body{ margin:0; font:16px/1.6 -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif; color:var(--fg); background:var(--bg); }
+    .wrap{ max-width:860px; margin:0 auto; padding:24px; }
+    header{ display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap; }
+    h1{ margin:8px 0 0; font-size:24px; }
+    .lang-toggle button{ margin-left:8px; padding:6px 10px; border:1px solid var(--muted); background:transparent; color:var(--fg); border-radius:6px; cursor:pointer; }
+    .lang-toggle button.active{ border-color:var(--link); color:var(--link); }
+    .muted{ color:var(--muted); }
+    main{ margin-top:16px; }
+    a{ color:var(--link); text-decoration:none; }
+    a:hover{ text-decoration:underline; }
+  </style>
+  <script>
+    function setLang(lang){
+      document.querySelectorAll('[data-lang]')
+        .forEach(el => el.style.display = (el.dataset.lang === lang) ? 'block' : 'none');
+      document.querySelectorAll('.lang-toggle button')
+        .forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+      localStorage.setItem('js_lang', lang);
+    }
+    function initLang(){
+      const saved = localStorage.getItem('js_lang');
+      const preferred = navigator.language && navigator.language.startsWith('ja') ? 'ja' : 'en';
+      setLang(saved || preferred);
+    }
+    document.addEventListener('DOMContentLoaded', initLang);
+  </script>
+  <meta name="color-scheme" content="light dark" />
+  <meta name="robots" content="noindex" />
+  <!-- Optional: analytics or meta can be placed here -->
+  <link rel="canonical" href="https://nekomura0728.github.io/jewelsort/terms" />
+  <link rel="icon" href="/jewelsort/favicon.ico" />
+  <link rel="apple-touch-icon" href="/jewelsort/apple-touch-icon.png" />
+  <meta name="theme-color" content="#0d1117" />
+  <meta name="description" content="JewelSort Terms of Service / 利用規約" />
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div>
+        <div class="muted">JewelSort</div>
+        <h1>Terms of Service / 利用規約</h1>
+      </div>
+      <div class="lang-toggle">
+        <span class="muted">Language:</span>
+        <button data-lang="en" onclick="setLang('en')">English</button>
+        <button data-lang="ja" onclick="setLang('ja')">日本語</button>
+      </div>
+    </header>
+
+    <main>
+      <section data-lang="en">
+        <p class="muted">Last updated: 2025-08-31</p>
+        <p>Welcome to JewelSort. By using this app you agree to these Terms.</p>
+        <ul>
+          <li><b>Service:</b> JewelSort is a casual, offline puzzle game. Features may change over time.</li>
+          <li><b>Purchases:</b> Optional in‑app purchase unlocks additional difficulties. All sales are final except as required by law and App Store policies.</li>
+          <li><b>Data:</b> We do not collect personal data. Game progress is stored locally on your device.</li>
+          <li><b>Liability:</b> The app is provided “as is” without warranties. We are not liable for damages arising from its use.</li>
+          <li><b>Contact:</b> For support, open an issue on our GitHub repository.</li>
+        </ul>
+        <p>We may update these Terms. Continued use constitutes acceptance of changes.</p>
+        <p class="muted"><a href="/jewelsort/privacy">Privacy Policy</a></p>
+      </section>
+
+      <section data-lang="ja" style="display:none">
+        <p class="muted">最終更新日: 2025-08-31</p>
+        <p>JewelSort をご利用いただくにあたり、本利用規約に同意いただく必要があります。</p>
+        <ul>
+          <li><b>サービス:</b> JewelSort はオフラインのカジュアルパズルゲームです。機能は将来変更される場合があります。</li>
+          <li><b>購入:</b> アプリ内課金により追加の難易度をアンロックできます。法律および App Store のポリシーで認められる場合を除き、購入の返金はできません。</li>
+          <li><b>データ:</b> 個人情報は収集しません。ゲームの進行は端末内（UserDefaults）に保存されます。</li>
+          <li><b>免責:</b> 本アプリは現状有姿で提供されます。利用により生じたいかなる損害についても責任を負いません。</li>
+          <li><b>連絡先:</b> サポートは GitHub リポジトリの Issues からご連絡ください。</li>
+        </ul>
+        <p>本規約は更新されることがあります。継続利用により変更に同意したものとみなします。</p>
+        <p class="muted"><a href="/jewelsort/privacy">プライバシーポリシー</a></p>
+      </section>
+    </main>
+  </div>
+</body>
+<script>
+  // Ensure correct default on back/forward cache restore
+  document.addEventListener('pageshow', initLang);
+</script>
+</html>
+
