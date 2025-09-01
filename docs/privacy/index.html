@@ -50,8 +50,8 @@
       </div>
       <div class="lang-toggle">
         <span class="muted">Language:</span>
-        <button data-lang="en" onclick="setLang('en')">English</button>
-        <button data-lang="ja" onclick="setLang('ja')">日本語</button>
+        <button id="lang-en" type="button" data-lang="en">English</button>
+        <button id="lang-ja" type="button" data-lang="ja">日本語</button>
       </div>
     </header>
 
@@ -69,7 +69,7 @@
         <h3>Network Access</h3>
         <p>The app is designed to work offline and does not make network requests during normal gameplay.</p>
         <h3>Contact</h3>
-        <p>For questions, please open an issue on our GitHub repository or email <a href="mailto:nekomura@liz-aria.com">nekomura@liz-aria.com</a>.</p>
+        <p>For questions, please email <a href="mailto:nekomura@liz-aria.com">nekomura@liz-aria.com</a>.</p>
         <p class="muted"><a href="/jewelsort/terms">Terms of Service</a></p>
       </section>
 
@@ -86,13 +86,19 @@
         <h3>ネットワークアクセス</h3>
         <p>本アプリはオフラインで動作する設計であり、通常のプレイ中にネットワークリクエストを行いません。</p>
         <h3>連絡先</h3>
-        <p>ご質問は GitHub リポジトリの Issues または <a href="mailto:nekomura@liz-aria.com">nekomura@liz-aria.com</a> までお問い合わせください。</p>
+        <p>ご質問は <a href="mailto:nekomura@liz-aria.com">nekomura@liz-aria.com</a> までお問い合わせください。</p>
         <p class="muted"><a href="/jewelsort/terms">利用規約</a></p>
       </section>
     </main>
   </div>
+  <script>
+    document.addEventListener('pageshow', initLang);
+    document.addEventListener('DOMContentLoaded', function(){
+      var enBtn = document.getElementById('lang-en');
+      var jaBtn = document.getElementById('lang-ja');
+      if (enBtn) enBtn.addEventListener('click', function(){ setLang('en'); });
+      if (jaBtn) jaBtn.addEventListener('click', function(){ setLang('ja'); });
+    });
+  </script>
 </body>
-<script>
-  document.addEventListener('pageshow', initLang);
-</script>
 </html>
